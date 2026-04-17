@@ -1,0 +1,12 @@
+{
+  "name": "spec-kit-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "node spec-runner.js",
+    "start": "npx http-server ./src -c-1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
