@@ -47,14 +47,14 @@
 **Story**: An administrator can view a list of employees, add a new employee, update an existing employee, and remove an employee.
 **Independent Test**: CRUD operations work end-to-end via the REST API and database.
 
-- [ ] T016 [US1] Write test spec for employee list endpoint in `backend/tests/integration/employeeList.test.ts` (RED)
-- [ ] T017 [US1] Create GET `/api/employees/list` endpoint in `backend/src/routes/employees.ts` (GREEN)
-- [ ] T018 [US1] Write test spec for create employee endpoint in `backend/tests/integration/createEmployee.test.ts` (RED)
-- [ ] T019 [US1] Create POST `/api/employees/list/create` endpoint in `backend/src/routes/employees.ts` (GREEN)
-- [ ] T020 [US1] Write test spec for update employee endpoint in `backend/tests/integration/updateEmployee.test.ts` (RED)
-- [ ] T021 [US1] Create PUT `/api/employees/{id}/edit` endpoint in `backend/src/routes/employees.ts` (GREEN)
-- [ ] T022 [US1] Write test spec for delete employee endpoint in `backend/tests/integration/deleteEmployee.test.ts` (RED)
-- [ ] T023 [US1] Create DELETE `/api/employees/{id}` endpoint in `backend/src/routes/employees.ts` (GREEN)
+- [x] T016 [US1] Write test spec for employee list endpoint in `backend/tests/integration/employeeList.test.ts` (RED)
+- [x] T017 [US1] Create GET `/api/employees/list` endpoint in `backend/src/routes/employees.ts` (GREEN)
+- [x] T018 [US1] Write test spec for create employee endpoint in `backend/tests/integration/createEmployee.test.ts` (RED)
+- [x] T019 [US1] Create POST `/api/employees/list/create` endpoint in `backend/src/routes/employees.ts` (GREEN)
+- [x] T020 [US1] Write test spec for update employee endpoint in `backend/tests/integration/updateEmployee.test.ts` (RED)
+- [x] T021 [US1] Create PUT `/api/employees/{id}/edit` endpoint in `backend/src/routes/employees.ts` (GREEN)
+- [x] T022 [US1] Write test spec for delete employee endpoint in `backend/tests/integration/deleteEmployee.test.ts` (RED)
+- [x] T023 [US1] Create DELETE `/api/employees/{id}` endpoint in `backend/src/routes/employees.ts` (GREEN)
 - [ ] T024 [P] [US1] Create React component `EmployeeListPage` in `frontend/src/pages/EmployeeList.tsx` with table layout
 - [ ] T025 [P] [US1] Create React component `EmployeeForm` in `frontend/src/components/EmployeeForm.tsx` for add/edit
 - [ ] T026 [P] [US1] Create API client wrapper in `frontend/src/services/api.ts` for employee endpoints

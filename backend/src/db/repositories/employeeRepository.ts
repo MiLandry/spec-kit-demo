@@ -3,7 +3,7 @@
  * Data access layer for employee CRUD operations
  */
 
-import { query } from './connection';
+import { query } from '../connection';
 import type { Employee, CreateEmployeeInput, UpdateEmployeeInput, EmployeeListQuery } from '@employee-system/shared';
 
 export class EmployeeRepository {

@@ -2,5 +2,14 @@
  * Entry point for @employee-system/shared package
  */
 
+// Export types
 export * from './types';
-export * from './validation';
+
+// Export validation schemas (without duplicate types)
+export {
+  employeeStatusSchema,
+  employeeSchema,
+  createEmployeeSchema,
+  updateEmployeeSchema,
+  employeeListQuerySchema,
+} from './validation/employee';
