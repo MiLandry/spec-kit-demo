@@ -55,14 +55,14 @@
 - [x] T021 [US1] Create PUT `/api/employees/{id}/edit` endpoint in `backend/src/routes/employees.ts` (GREEN)
 - [x] T022 [US1] Write test spec for delete employee endpoint in `backend/tests/integration/deleteEmployee.test.ts` (RED)
 - [x] T023 [US1] Create DELETE `/api/employees/{id}` endpoint in `backend/src/routes/employees.ts` (GREEN)
-- [ ] T024 [P] [US1] Create React component `EmployeeListPage` in `frontend/src/pages/EmployeeList.tsx` with table layout
-- [ ] T025 [P] [US1] Create React component `EmployeeForm` in `frontend/src/components/EmployeeForm.tsx` for add/edit
-- [ ] T026 [P] [US1] Create API client wrapper in `frontend/src/services/api.ts` for employee endpoints
-- [ ] T027 [US1] Wire EmployeeListPage to API in `frontend/src/pages/EmployeeList.tsx` for list fetching
-- [ ] T028 [US1] Wire EmployeeForm to API for create operation in `frontend/src/pages/EmployeeList.tsx`
-- [ ] T029 [US1] Wire EmployeeForm to API for update operation in `frontend/src/pages/EmployeeList.tsx`
-- [ ] T030 [US1] Wire delete confirmation and API call in `frontend/src/pages/EmployeeList.tsx`
-- [ ] T031 [US1] Write integration test for EmployeeListPage in `frontend/tests/integration/EmployeeList.test.tsx`
+- [x] T024 [P] [US1] Create React component `EmployeeListPage` in `frontend/src/pages/EmployeeList.tsx` with table layout
+- [x] T025 [P] [US1] Create React component `EmployeeForm` in `frontend/src/components/EmployeeForm.tsx` for add/edit
+- [x] T026 [P] [US1] Create API client wrapper in `frontend/src/services/api.ts` for employee endpoints
+- [x] T027 [US1] Wire EmployeeListPage to API in `frontend/src/pages/EmployeeList.tsx` for list fetching
+- [x] T028 [US1] Wire EmployeeForm to API for create operation in `frontend/src/pages/EmployeeList.tsx`
+- [x] T029 [US1] Wire EmployeeForm to API for update operation in `frontend/src/pages/EmployeeList.tsx`
+- [x] T030 [US1] Wire delete confirmation and API call in `frontend/src/pages/EmployeeList.tsx`
+- [x] T031 [US1] Write integration test for EmployeeListPage in `frontend/tests/integration/EmployeeList.test.tsx`
 - [ ] T032 [US1] Manual acceptance test: verify CRUD workflow end-to-end via UI
 
 ---
