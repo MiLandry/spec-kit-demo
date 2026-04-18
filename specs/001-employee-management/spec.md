@@ -69,9 +69,11 @@ The system prevents invalid employee records and provides clear validation feedb
 - **FR-005**: Employee records MUST include, at minimum, full name, official email, job title, department, employment status, manager name, and start date.
 - **FR-006**: The system MUST validate required fields and reject invalid input, including malformed email addresses.
 - **FR-007**: The backend MUST persist employee data and return it consistently across refreshes, page loads, and API calls.
-- **FR-008**: The frontend MUST present a detail view for a selected employee and a summary list view.
-- **FR-009**: The system MUST support search or filtering by employee name and department.
-- **FR-010**: APIs servicing the frontend MUST follow a view-centric design, with endpoint paths corresponding to frontend URLs suffixed by the widget or component serviced.
+- **FR-008**: The backend MUST expose a REST API for employee CRUD operations, including view-centric endpoints for frontend widgets.
+- **FR-009**: The backend persistence layer MUST use Postgres as the primary data store for employee records.
+- **FR-010**: The frontend MUST present a detail view for a selected employee and a summary list view.
+- **FR-011**: The system MUST support search or filtering by employee name and department.
+- **FR-012**: APIs servicing the frontend MUST follow a view-centric design, with endpoint paths corresponding to frontend URLs suffixed by the widget or component serviced.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -93,6 +95,6 @@ The system prevents invalid employee records and provides clear validation feedb
 
 - The system is intended for internal HR or administrative users, not public employee self-service.
 - Authentication and role-based access control are out of scope for the initial feature.
-- Data storage may be a simple persistent backend store appropriate for the demo; full enterprise HR integrations are out of scope.
+- The backend persistence layer will use Postgres for employee records with a schema designed for the assumed fields.
 - Mobile responsiveness is desirable, but the first release targets a desktop-first administrative interface.
 - The frontend and backend will share domain models through reusable TypeScript packages where appropriate.
