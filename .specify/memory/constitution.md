@@ -1,50 +1,47 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Spec Kit Demo Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Library-First Engineering
+Every significant feature or piece of business logic is implemented first as a standalone, reusable library or package. Libraries must be independently testable, composable, and documented before integration into the application.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. CLI Exposure
+Core libraries and utilities expose a clean CLI interface that accepts text or JSON input and produces text or JSON output. CLI contracts are first-class integration and automation boundaries.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Strict Test-First Imperative
+No implementation code is written until unit and integration tests are authored, reviewed, and confirmed to fail. Follow the Red-Green-Refactor cycle strictly, and prefer realistic integration-style tests over excessive mocking where practical.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Simplicity-First Architecture
+Trust the framework and language directly. Avoid unnecessary wrappers, meta-abstractions, and clever indirection. Keep the project structure minimal, and add complexity only when it is explicitly justified and documented.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Strict TypeScript Safety
+The entire codebase is authored in strict TypeScript. `any` is prohibited except for clearly justified, temporary migration scaffolding. Types and interfaces are explicit, stable, and used to improve readability and reliability.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### VI. Performance, Security, and Maintainability
+Design every layer with secure defaults, sensible performance characteristics, and long-term maintainability. Validate inputs at boundaries, minimize privilege scope, and prioritize clear, readable implementations.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Architecture Constraints
+This project is a modern full-stack web application built with Node.js on the backend, React on the frontend, Material UI on the UI layer, and TypeScript throughout. Separate backend, frontend, and shared library concerns clearly. Use minimal runtime dependencies and platform idioms over custom frameworks.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+- Backend services expose explicit HTTP and CLI contracts.
+- The backend is designed as a Backend-For-Frontend (BFF) layer that serves the specific needs of the frontend with a clean API, handles server-side logic, data fetching, and external integrations.
+- View-centric APIs should map endpoint paths to frontend URLs, suffixed with the widget or component serviced. APIs that do not directly serve frontend views must remain data-centric.
+- Frontend components are accessible, material-inspired, and predictable.
+- Shared packages centralize domain types, validation, and business logic for reuse across backend and frontend.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Workflow and Quality Rules
+Follow the Spec Kit workflow: constitution → specify → plan → tasks → implement. Each implementation must be traceable to a spec and task artifact.
+
+- Specs define behavior, acceptance criteria, and non-functional expectations.
+- Plans document architecture, tradeoffs, and test strategy before coding begins.
+- Tasks break work into discrete, reviewable units with clear acceptance criteria.
+- Reviews verify tests, architecture, and alignment with these principles.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This constitution is the authoritative guide for project decisions. Amendments require a documented proposal, version bump, and approval from the project lead.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- All feature work must be linked to spec artifacts before implementation.
+- Any deviation from the constitution must be documented and ratified in the next version.
+- Security, performance, and maintainability concerns must be addressed in the corresponding spec and plan.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 0.2.0 | **Ratified**: 2026-04-17 | **Last Amended**: 2026-04-17
