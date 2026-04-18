@@ -72,14 +72,14 @@
 **Story**: An administrator can open an employee record to see full details and can filter the employee list by name or department.
 **Independent Test**: Detail view and search filtering work via the UI and backend filtering endpoints.
 
-- [ ] T033 [P] [US2] Create employee detail/edit page `EmployeeDetailPage` in `frontend/src/pages/EmployeeDetail.tsx`
-- [ ] T034 [P] [US2] Create search/filter input component in `frontend/src/components/EmployeeFilter.tsx`
-- [ ] T035 [US2] Write test for filtered list endpoint in `backend/tests/integration/employeeSearch.test.ts` (RED)
-- [ ] T036 [US2] Create GET `/api/employees/list?search=X&department=Y` filtering in `backend/src/routes/employees.ts` (GREEN)
-- [ ] T037 [US2] Wire detail route and navigation in `frontend/src/App.tsx` for EmployeeDetailPage
-- [ ] T038 [US2] Wire search input to API call in `EmployeeListPage`
-- [ ] T039 [US2] Wire filter dropdown to API call in `EmployeeListPage`
-- [ ] T040 [US2] Write integration test for search and filter in `frontend/tests/integration/EmployeeSearch.test.tsx`
+- [x] T033 [P] [US2] Create employee detail/edit page `EmployeeDetailPage` in `frontend/src/pages/EmployeeDetail.tsx`
+- [x] T034 [P] [US2] Create search/filter input component in `frontend/src/components/EmployeeFilter.tsx`
+- [x] T035 [US2] Write test for filtered list endpoint in `backend/tests/integration/employeeSearch.test.ts` (RED)
+- [x] T036 [US2] Create GET `/api/employees/list?search=X&department=Y` filtering in `backend/src/routes/employees.ts` (GREEN)
+- [x] T037 [US2] Wire detail route and navigation in `frontend/src/App.tsx` for EmployeeDetailPage
+- [x] T038 [US2] Wire search input to API call in `EmployeeListPage`
+- [x] T039 [US2] Wire filter dropdown to API call in `EmployeeListPage`
+- [x] T040 [US2] Write integration test for search and filter in `frontend/tests/integration/EmployeeSearch.test.tsx`
 - [ ] T041 [US2] Manual acceptance test: verify detail view and search/filter usability
 
 ---

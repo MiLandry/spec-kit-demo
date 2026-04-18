@@ -23,10 +23,12 @@ import {
   IconButton,
   Tooltip,
 } from '@mui/material';
-import { Edit as EditIcon, Delete as DeleteIcon, Add as AddIcon } from '@mui/icons-material';
+import { Edit as EditIcon, Delete as DeleteIcon, Add as AddIcon, Visibility as VisibilityIcon } from '@mui/icons-material';
+import { Link as RouterLink } from 'react-router-dom';
 import type { Employee, CreateEmployeeInput, UpdateEmployeeInput } from '@employee-system/shared';
 import { employeeApi } from '../services/api';
 import { EmployeeForm } from '../components/EmployeeForm';
+import { EmployeeFilter } from '../components/EmployeeFilter';
 
 export const EmployeeListPage: React.FC = () => {
   const [employees, setEmployees] = useState<Employee[]>([]);
@@ -35,23 +37,41 @@ export const EmployeeListPage: React.FC = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingEmployee, setEditingEmployee] = useState<Employee | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
+  const [search, setSearch] = useState('');
+  const [department, setDepartment] = useState('');
 
   // Load employees on mount
   useEffect(() => {
     fetchEmployees();
   }, []);
 
-  const fetchEmployees = async () => {
+  const fetchEmployees = async (filters: { search?: string; department?: string } = {}) => {
     try {
       setLoading(true);
       setError(null);
-      const data = await employeeApi.listEmployees();
+      const data = await employeeApi.listEmployees(filters);
       setEmployees(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch employees');
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleSearchChange = async (value: string) => {
+    setSearch(value);
+    await fetchEmployees({ search: value, department });
+  };
+
+  const handleDepartmentChange = async (value: string) => {
+    setDepartment(value);
+    await fetchEmployees({ search, department: value });
+  };
+
+  const handleClearFilters = async () => {
+    setSearch('');
+    setDepartment('');
+    await fetchEmployees({});
   };
 
   const handleOpenDialog = (employee?: Employee) => {
@@ -104,7 +124,7 @@ export const EmployeeListPage: React.FC = () => {
 
   return (
     <Box sx={{ p: 3 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3, flexWrap: 'wrap', gap: 2 }}>
         <h1>Employee Management</h1>
         <Button
           variant="contained"
@@ -115,6 +135,14 @@ export const EmployeeListPage: React.FC = () => {
           Add Employee
         </Button>
       </Box>
+
+      <EmployeeFilter
+        search={search}
+        department={department}
+        onSearchChange={handleSearchChange}
+        onDepartmentChange={handleDepartmentChange}
+        onClear={handleClearFilters}
+      />
 
       {error && <Alert severity="error">{error}</Alert>}
 
@@ -148,6 +176,17 @@ export const EmployeeListPage: React.FC = () => {
                     <Chip label={employee.status} color={getStatusColor(employee.status)} size="small" />
                   </TableCell>
                   <TableCell align="right">
+                    <Tooltip title="View details">
+                      <IconButton
+                        component={RouterLink}
+                        to={`/employees/${employee.id}`}
+                        color="primary"
+                        size="small"
+                        aria-label={`View details for ${employee.fullName}`}
+                      >
+                        <VisibilityIcon />
+                      </IconButton>
+                    </Tooltip>
                     <Tooltip title="Edit">
                       <IconButton
                         color="primary"

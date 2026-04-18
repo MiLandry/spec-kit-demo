@@ -18,8 +18,8 @@ export class EmployeeRepository {
     let paramIndex = 1;
 
     if (search) {
-      whereClause += ` AND LOWER(full_name) LIKE LOWER($${paramIndex}%)`;
-      queryParams.push(search);
+      whereClause += ` AND LOWER(full_name) LIKE LOWER($${paramIndex})`;
+      queryParams.push(`%${search}%`);
       paramIndex++;
     }
 

@@ -1,3 +1,13 @@
+<!--
+Sync Impact Report:
+- Version change: 0.2.0 → 0.2.1
+- Modified principles: added "Developer Experience and Documentation"
+- Added sections: Developer Experience and Documentation
+- Removed sections: none
+- Templates reviewed: .specify/templates/plan-template.md ✅, .specify/templates/spec-template.md ✅, .specify/templates/tasks-template.md ✅
+- Follow-up TODOs: none
+-->
+
 # Spec Kit Demo Constitution
 
 ## Core Principles
@@ -19,6 +29,9 @@ The entire codebase is authored in strict TypeScript. `any` is prohibited except
 
 ### VI. Performance, Security, and Maintainability
 Design every layer with secure defaults, sensible performance characteristics, and long-term maintainability. Validate inputs at boundaries, minimize privilege scope, and prioritize clear, readable implementations.
+
+### VII. Developer Experience and Documentation
+Project documentation MUST make local setup, tooling, test execution, build, and contribution workflows explicit. A main `README.md` MUST describe required tools, environment setup, build commands, test commands, and runtime expectations. A `CONTRIBUTING.md` MUST explain how to contribute, how to run tests, and how to propose or review changes.
 
 ## Architecture Constraints
 This project is a modern full-stack web application built with Node.js on the backend, React on the frontend, Material UI on the UI layer, and TypeScript throughout. Separate backend, frontend, and shared library concerns clearly. Use minimal runtime dependencies and platform idioms over custom frameworks.
@@ -44,4 +57,4 @@ This constitution is the authoritative guide for project decisions. Amendments r
 - Any deviation from the constitution must be documented and ratified in the next version.
 - Security, performance, and maintainability concerns must be addressed in the corresponding spec and plan.
 
-**Version**: 0.2.0 | **Ratified**: 2026-04-17 | **Last Amended**: 2026-04-17
+**Version**: 0.2.1 | **Ratified**: 2026-04-17 | **Last Amended**: 2026-04-18

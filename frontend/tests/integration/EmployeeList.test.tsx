@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router-dom';
 import { EmployeeListPage } from '../../src/pages/EmployeeList';
 import { employeeApi } from '../../src/services/api';
 
@@ -47,13 +48,19 @@ const mockEmployees: Employee[] = [
 
 describe('EmployeeListPage', () => {
   beforeEach(() => {
+    jest.clearAllMocks();
     (employeeApi.listEmployees as jest.Mock).mockResolvedValue(mockEmployees);
     (employeeApi.deleteEmployee as jest.Mock).mockResolvedValue(undefined);
-    jest.clearAllMocks();
   });
 
+  const renderWithRouter = () => render(
+    <MemoryRouter>
+      <EmployeeListPage />
+    </MemoryRouter>
+  );
+
   it('renders employee list and add button', async () => {
-    render(<EmployeeListPage />);
+    renderWithRouter();
 
     expect(await screen.findByText('Employee Management')).toBeInTheDocument();
     expect(await screen.findByText('John Doe')).toBeInTheDocument();
@@ -61,7 +68,7 @@ describe('EmployeeListPage', () => {
   });
 
   it('opens the add employee dialog when clicking Add Employee', async () => {
-    render(<EmployeeListPage />);
+    renderWithRouter();
 
     await waitFor(() => expect(employeeApi.listEmployees).toHaveBeenCalled());
 
@@ -73,11 +80,21 @@ describe('EmployeeListPage', () => {
 
   it('deletes an employee when Delete is clicked', async () => {
     window.confirm = jest.fn().mockReturnValue(true);
-    render(<EmployeeListPage />);
+    renderWithRouter();
 
     await waitFor(() => expect(employeeApi.listEmployees).toHaveBeenCalled());
     await userEvent.click(screen.getByRole('button', { name: /Delete/i }));
 
     await waitFor(() => expect(employeeApi.deleteEmployee).toHaveBeenCalledWith('1'));
+  });
+
+  it('renders a view details link for each employee', async () => {
+    renderWithRouter();
+
+    await waitFor(() => expect(employeeApi.listEmployees).toHaveBeenCalled());
+
+    const viewButton = screen.getByLabelText(/View details for John Doe/i);
+    expect(viewButton).toBeInTheDocument();
+    expect(viewButton.closest('a')).toHaveAttribute('href', '/employees/1');
   });
 });

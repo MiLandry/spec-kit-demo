@@ -5,6 +5,7 @@
 
 import { Router, Request, Response } from 'express';
 import type { EmployeeService as EmployeeServiceType } from '../services/employeeService';
+import type { EmployeeStatus } from '@employee-system/shared';
 import { createEmployeeSchema, updateEmployeeSchema } from '@employee-system/shared';
 
 export const createEmployeeRoutes = (employeeService: typeof EmployeeServiceType): Router => {
@@ -12,14 +13,39 @@ export const createEmployeeRoutes = (employeeService: typeof EmployeeServiceType
 
   /**
    * GET /api/employees/list
-   * Returns a list of all employees
+   * Returns a list of employees, optionally filtered by search, department, status, limit, or offset.
    */
-  router.get('/list', async (_req: Request, res: Response) => {
+  router.get('/list', async (req: Request, res: Response) => {
     try {
-      const result = await employeeService.listEmployees({});
-      res.json({ employees: result.employees });
+      const { search, department, status, limit, offset } = req.query;
+      const normalizedSearch = typeof search === 'string' && search.trim() !== '' ? search : undefined;
+      const normalizedDepartment = typeof department === 'string' && department.trim() !== '' ? department : undefined;
+      const normalizedStatus = typeof status === 'string' && status.trim() !== '' ? (status as EmployeeStatus) : undefined;
+
+      const result = await employeeService.listEmployees({
+        search: normalizedSearch,
+        department: normalizedDepartment,
+        status: normalizedStatus,
+        limit: limit ? Number(limit) : undefined,
+        offset: offset ? Number(offset) : undefined,
+      });
+      res.json({ employees: result.employees, total: result.total });
     } catch (error) {
       res.status(500).json({ error: 'Failed to fetch employees' });
+    }
+  });
+
+  /**
+   * GET /api/employees/:id
+   * Returns a single employee by ID
+   */
+  router.get('/:id', async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      const employee = await employeeService.getEmployee(id);
+      res.json({ employee });
+    } catch (error: any) {
+      res.status(404).json({ error: error.message || 'Employee not found' });
     }
   });
 
