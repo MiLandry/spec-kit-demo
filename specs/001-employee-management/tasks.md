@@ -17,13 +17,13 @@
 
 **Purpose**: Initialize project structure, package.json files, and tooling configuration.
 
-- [ ] T001 Create project root structure and shared package directory at `shared/`
-- [ ] T002 [P] Initialize shared package with TypeScript config at `shared/tsconfig.json`
-- [ ] T003 [P] Initialize backend package with TypeScript config at `backend/tsconfig.json`
-- [ ] T004 [P] Initialize frontend package with React and TypeScript config at `frontend/`
-- [ ] T005 Create root `package.json` with monorepo workspace configuration for `shared/`, `backend/`, `frontend/`
-- [ ] T006 [P] Create Postgres setup script at `.specify/scripts/setup-postgres.sh`
-- [ ] T007 Add `.env` template at `.env.example` for local Postgres credentials and backend port
+- [x] T001 Create project root structure and shared package directory at `shared/`
+- [x] T002 [P] Initialize shared package with TypeScript config at `shared/tsconfig.json`
+- [x] T003 [P] Initialize backend package with TypeScript config at `backend/tsconfig.json`
+- [x] T004 [P] Initialize frontend package with React and TypeScript config at `frontend/`
+- [x] T005 Create root `package.json` with monorepo workspace configuration for `shared/`, `backend/`, `frontend/`
+- [x] T006 [P] Create Postgres setup script at `.specify/scripts/setup-postgres.sh`
+- [x] T007 Add `.env` template at `.env.example` for local Postgres credentials and backend port
 
 ---
 
