@@ -31,14 +31,14 @@
 
 **Purpose**: Build shared domain types, validation, database schema, and repository layer.
 
-- [ ] T008 [P] Create shared employee types in `shared/src/types/employee.ts` with all fields from spec
-- [ ] T009 [P] Create Zod validation schemas in `shared/src/validation/employee.ts` for required/optional fields
-- [ ] T010 Create Postgres schema migration in `backend/src/db/migrations/001-create-employees-table.sql`
-- [ ] T011 Set up Postgres connection pool in `backend/src/db/connection.ts`
-- [ ] T012 [P] Create employee repository layer in `backend/src/db/repositories/employeeRepository.ts` with CRUD methods
-- [ ] T013 Create backend service layer in `backend/src/services/employeeService.ts` for business logic
-- [ ] T014 [P] Create Express app bootstrap in `backend/src/app.ts` with middleware setup
-- [ ] T015 Create shared CLI entry point in `shared/src/cli/index.ts` for testing and automation
+- [x] T008 [P] Create shared employee types in `shared/src/types/employee.ts` with all fields from spec
+- [x] T009 [P] Create Zod validation schemas in `shared/src/validation/employee.ts` for required/optional fields
+- [x] T010 Create Postgres schema migration in `backend/src/db/migrations/001-create-employees-table.sql`
+- [x] T011 Set up Postgres connection pool in `backend/src/db/connection.ts`
+- [x] T012 [P] Create employee repository layer in `backend/src/db/repositories/employeeRepository.ts` with CRUD methods
+- [x] T013 Create backend service layer in `backend/src/services/employeeService.ts` for business logic
+- [x] T014 [P] Create Express app bootstrap in `backend/src/app.ts` with middleware setup
+- [x] T015 Create shared CLI entry point in `shared/src/cli/index.ts` for testing and automation
 
 ---
 
