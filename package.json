@@ -1,0 +1,21 @@
+{
+  "name": "employee-management-system",
+  "version": "0.0.1",
+  "description": "Full-stack employee management system using Node.js, React, and Postgres",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "build": "npm run build --workspaces",
+    "test": "npm test --workspaces",
+    "dev": "npm run dev --workspaces",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
