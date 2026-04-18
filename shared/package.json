@@ -7,6 +7,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "dev": "echo 'Shared library - no dev server needed'",
     "test": "jest",
     "lint": "tsc --noEmit"
   },
