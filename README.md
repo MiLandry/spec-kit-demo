@@ -32,6 +32,15 @@ cp .env.example .env
 
 3. Configure `.env` with your local database connection and backend port.
 
+4. Create the database and run the schema migration:
+
+```bash
+createdb -O employeeadmin employee_management
+psql -h localhost -U employeeadmin -d employee_management -f backend/src/db/migrations/001-create-employees-table.sql
+```
+
+If you do not have `createdb` or `psql` installed, install PostgreSQL or use Docker for a local database.
+
 ## Run the App
 
 ### Frontend
