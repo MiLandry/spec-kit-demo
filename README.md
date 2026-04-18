@@ -2,6 +2,8 @@
 
 A full-stack employee management system built with a monorepo structure and a spec-driven workflow.
 
+![alt text](image.png)
+
 ## Repository Layout
 
 - `backend/` - Express backend, Postgres repository layer, and REST APIs
